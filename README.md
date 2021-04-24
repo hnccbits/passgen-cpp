@@ -11,4 +11,5 @@ cd build
 make
 ```
 
+[Read Design goals](DESIGN.md)
 
