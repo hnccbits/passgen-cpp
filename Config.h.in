@@ -1,0 +1,2 @@
+#define passgen_VERSION_MAJOR @passgen_VERSION_MAJOR @
+#define passgen_VERSION_MINOR @passgen_VERSION_MINOR @

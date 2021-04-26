@@ -1,9 +1,6 @@
 #include <iostream>
-double getversion()
-{
-    double ver = 1.0;
-    return ver;
-}
+#include "Config.h"
+
 int main(int argc, char *argv[])
 {
 
@@ -11,7 +8,9 @@ int main(int argc, char *argv[])
     {
         if (std::string(argv[i]) == "-V")
         {
-            std::cout << "Current version: " << getversion() << "\n";
+            std::cout << "Current version: "
+                      << passgen_VERSION_MAJOR << "." << passgen_VERSION_MINOR
+                      << "\n";
         }
     }
     return 0;
