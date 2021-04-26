@@ -56,7 +56,7 @@ For reference see this, [https://www.cplusplus.com/reference/random/](https://ww
 
 We will write classes that will encapsulate the use of `std::random`. This is common design used in projects.
 
-These classes will have to be configurable by design. This means that the components of this class are modular. If in future we plan to extend the functionality of the tool, we can extend these classes without changing the old code as much as possible. We just add the new fucntionality to these classes.
+These classes will have to be configurable by design. This means that the components of this class are modular. If in future we plan to extend the functionality of the tool, we can extend these classes without changing the old code as much as possible. We just add the new functionality to these classes.
 
 #### Class RandomEngine
 ##### Constructors
@@ -74,4 +74,4 @@ These classes will have to be configurable by design. This means that the compon
 - `getLength()` - Return length of the generator
 - `getSymbolSetStatus()` - Returns true if symbols are on
 
-This design is subject to change and will change in future as the tool gets more spohisticated.
+This design is subject to change and will change in future as the tool gets more sophisticated.
