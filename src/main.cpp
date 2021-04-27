@@ -21,7 +21,3 @@ int main(int argc, char *argv[]){
     
     return 0;
 }
-
-//          0  1  2
-// passgen -S -L 20
-// pasgen -L -S 20
