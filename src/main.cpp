@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string.h>
 
 int main(int argc, char *argv[]){
     // set a limit of the number of arguments to be passed: in argc
@@ -11,11 +12,19 @@ int main(int argc, char *argv[]){
     }
 
     // set the length of the character set
-    if(argv[1] == "-L")
+    int length = 0;
+    for(int i = 0; i<argc; i++)
     {
-        int length = atoi(argv[2]);
-        // generate length using length generator.
-
+        if(strcmp(argv[i], "-L") == 0)
+        {
+            // And since the length entered by the user may be after '-S' so we
+            // have to take another loop to identify where it is.
+            for(int j = i; j<argc; j++)
+            {
+                if(isdigit(argv[i]))
+                    length = atoi(argv[i]);
+            }
+        }
     }
     
     return 0;
