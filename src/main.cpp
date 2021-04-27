@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string.h>
+#include "version.h"
+
 
 int main(int argc, char *argv[]){
     // set a limit of the number of arguments to be passed: in argc
@@ -16,8 +18,10 @@ int main(int argc, char *argv[]){
         if(strcmp(argv[i], "-L") == 0){
             length = atoi(argv[i+1]);
         }
+        if (std::string(argv[i]) == "-V"){
+            std::cout << "passgen version: " << passgen_VERSION_MAJOR << "." << passgen_VERSION_MINOR  << "."<< passgen_VERSION_REVISION << "\n";
+        }
             
     }
-    
     return 0;
 }
