@@ -16,16 +16,12 @@ int main(int argc, char *argv[]){
     for(int i = 0; i<argc; i++)
     {
         if(strcmp(argv[i], "-L") == 0)
-        {
-            // And since the length entered by the user may be after '-S' so we
-            // have to take another loop to identify where it is.
-            for(int j = i; j<argc; j++)
-            {
-                if(isdigit(argv[i]))
-                    length = atoi(argv[i]);
-            }
-        }
+            length = atoi(argv[i+1]);
     }
     
     return 0;
 }
+
+//          0  1  2
+// passgen -S -L 20
+// pasgen -L -S 20
