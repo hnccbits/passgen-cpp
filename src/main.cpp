@@ -11,8 +11,8 @@ int main(int argc, char *argv[]){
         return 1;
     }
 
-    // set the length of the character set
-    int length = 0;
+    // set the length of the character set to default, which is 8.
+    int length = 8;
     for(int i = 0; i<argc; i++)
     {
         if(strcmp(argv[i], "-L") == 0)
