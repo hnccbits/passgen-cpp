@@ -7,7 +7,7 @@ int main(int argc, char *argv[]){
     // set a limit of the number of arguments to be passed: in argc
     if(argc > 4){
         // tell the user how to run the program
-        std::cout<<"Usage1: passgen -L length_of_the_password_you_want\n";
+        std::cout<<"Use 'passgen -H' to print the instructions on how to use this tool\n";
         // We can add other usage messages here based on the input error committed by the user.
         return 1;
     }
@@ -18,9 +18,17 @@ int main(int argc, char *argv[]){
         if(strcmp(argv[i], "-L") == 0){
             length = atoi(argv[i+1]);
         }
+
         if (std::string(argv[i]) == "-V"){
             std::cout << "passgen version: " << passgen_VERSION_MAJOR << "." << passgen_VERSION_MINOR  << "."<< passgen_VERSION_REVISION << "\n";
         }
+
+        if (std::string(argv[i]) == "-H"){
+			std::cout << "Use 'passgen -L 20' to generate a random password with default character set of length 20\n";
+			std::cout << "Use 'passgen -S' to generate a random password with all character set of default length 8\n";
+			std::cout << "Use 'passgen -S -L 20' to generate a random password with all characters set of length 20\n";
+			std::cout << "Use 'passgen -V' to print the version of this tool\n";
+		}
             
     }
     return 0;
