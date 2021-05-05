@@ -11,7 +11,6 @@ int main(int argc, char *argv[]){
         // We can add other usage messages here based on the input error committed by the user.
         return 1;
     }
-
     // set the length of the character set to default, which is 8.
     int length = 8;
     for(int i = 0; i<argc; i++){
