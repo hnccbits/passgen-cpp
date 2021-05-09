@@ -24,6 +24,10 @@ int main(int argc, char *argv[]){
     int length = 8;
     for(int i = 0; i<argc; i++){
         if(strcmp(argv[i], "-L") == 0){
+            if(i == argc - 1) {
+                std::cout << "Illegal usage: password length not provided with -L option\n";
+                return 2;
+            }
             length = atoi(argv[i+1]);
         }
 
