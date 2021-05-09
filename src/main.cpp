@@ -24,10 +24,10 @@ int main(int argc, char *argv[]){
 
         if (std::string(argv[i]) == "-H"){
 			std::cout << "passgen -L <length>       generates a random password with default character set of given length\n";
-			std::cout << "Example: passgen -L 20    generates a random password with default character set of length 20\n"
+			std::cout << "Example: passgen -L 20    generates a random password with default character set of length 20\n";
 			std::cout << "passgen -S                generates a random password with all character set of default length 8\n";
 			std::cout << "passgen -S -L <length>    generates a random password with all characters set of given length\n";
-		   	std::cout << "Example: passgen -S -L 20 generates a random password with all characters set of length 20\n"
+		   	std::cout << "Example: passgen -S -L 20 generates a random password with all characters set of length 20\n";
 			std::cout << "passgen -V	      prints the version of this tool\n";
 		}
             
