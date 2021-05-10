@@ -1,36 +1,82 @@
 #include <iostream>
-#include <string.h>
+#include <cstring>
 #include "version.h"
-
+#include "engine.h"
+void print_usage() {
+    std::cout << "Usage:\n";
+    std::cout << "passgen -L <length>       generates a random password with default character set of given length\n";
+	std::cout << "Example: passgen -L 20    generates a random password with default character set of length 20\n";
+	std::cout << "passgen -S                generates a random password with all character set of default length 8\n";
+	std::cout << "passgen -S -L <length>    generates a random password with all characters set of given length\n";
+	std::cout << "Example: passgen -S -L 20 generates a random password with all characters set of length 20\n";
+	std::cout << "passgen -V	      prints the version of this tool\n";
+}
 
 int main(int argc, char *argv[]){
+    
+    // r1.setLength(20);
+    // std::cout<<r1.getLength();
     // set a limit of the number of arguments to be passed: in argc
     if(argc > 4){
         // tell the user how to run the program
-        std::cout<<"Usage1: passgen -L length_of_the_password_you_want\n";
-        // We can add other usage messages here based on the input error committed by the user.
+        std::cerr << "Illegal usage!\n";
+        print_usage();
         return 1;
     }
     // set the length of the character set to default, which is 8.
-    int length = 8;
-    for(int i = 0; i<argc; i++){
-        if(strcmp(argv[i], "-L") == 0){
-            length = atoi(argv[i+1]);
-        }
+    uint8_t length=8;
+    
+    // set symbol set
+    bool symbol_set = false;
+    RandomEngine r1(length,symbol_set);
+    std::cout<<r1.getLength();
+    for(int i = 1; i<argc; i++) {
+        if(strcmp(argv[i], "-S") == 0) {
+            if(!symbol_set) {
+                symbol_set = true;
+            } else {
+                std::cerr << "Illegal usage: Multiple -S flags\n";
+                return 2;
+            }
+        } else if(strcmp(argv[i], "-L") == 0){
+            if(i == argc - 1) {
+                std::cerr << "Illegal usage: password length not provided with -L option\n";
+                return 2;
+            }
+            size_t pos;
+            try {
+                length = std::stoi(argv[i+1], &pos);
+            } catch (std::invalid_argument &e) {
+                std::cerr << "Bad argument for password length\n";
+                return 2;
+            } catch (std::out_of_range &e) {
+                std::cerr << "Integer out of range\n";
+                return 2;
+            }
+            if(pos != strlen(argv[i+1])) {
+                // This is a rare case when a string like "45jkl" is parsed to 45 and not bad input
+                std::cerr << "Bad argument for password length\n";
+                return 2;
+            }
+            if(length < 1 || length > 128) {
+                std::cerr << "password length must be in the range [1,128]\n";
+                return 2;
+            }
 
-        if (std::string(argv[i]) == "-V"){
+            // If all goes right, we have a valid length
+            break;
+        } else if (strcmp(argv[i], "-V") == 0){
             std::cout << "passgen version: " << passgen_VERSION_MAJOR << "." << passgen_VERSION_MINOR  << "."<< passgen_VERSION_REVISION << "\n";
+            break;
+        } else if (strcmp(argv[i], "-H") == 0){
+			print_usage();
+            break;
+        } else {
+            std::cout << "Unknown option: " << argv[i] << std::endl;
+            print_usage();
+            return 2;
         }
-
-        if (std::string(argv[i]) == "-H"){
-			std::cout << "passgen -L <length>       generates a random password with default character set of given length\n";
-			std::cout << "Example: passgen -L 20    generates a random password with default character set of length 20\n";
-			std::cout << "passgen -S                generates a random password with all character set of default length 8\n";
-			std::cout << "passgen -S -L <length>    generates a random password with all characters set of given length\n";
-		   	std::cout << "Example: passgen -S -L 20 generates a random password with all characters set of length 20\n";
-			std::cout << "passgen -V	      prints the version of this tool\n";
-		}
-            
     }
+    
     return 0;
 }
