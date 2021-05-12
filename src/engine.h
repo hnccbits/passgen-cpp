@@ -11,8 +11,8 @@ class RandomEngine {
         std::vector<uint8_t>indx = {};
         std::string password = "";
     // Constructors:
-        explicit RandomEngine(uint8_t l); // To set the generator for the specific length
-        explicit RandomEngine(bool s); // To turn on symbol character set. Length remains default.
+        RandomEngine(uint8_t l); // To set the generator for the specific length
+        RandomEngine(bool s); // To turn on symbol character set. Length remains default.
         RandomEngine(uint8_t l, bool s); // To set length and symbol character set.
 
     // Methods:
