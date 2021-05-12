@@ -1,6 +1,6 @@
 #include "engine.h"
 #include <iostream>
-#include <string>
+#include <cstring>
 #include <fstream>
 #include <random>
 // Create definitions of the RandomEngine class here
@@ -48,6 +48,5 @@ std::string RandomEngine::getString(){
             }
         }
      }
-
     return password;
 } 
