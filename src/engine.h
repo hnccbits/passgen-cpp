@@ -1,9 +1,16 @@
 // Declare this class here
 #include<iostream>
+#include <fstream>
+#include <random>
+#include <string>
 class RandomEngine {
     private:
          uint8_t length;
          bool symb;
+         char seq[100];
+         uint8_t mod=62;
+         char alpha_num[63]="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+         char alpha_num_sym[73]="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*-_";
     public:
     // constructors:
          RandomEngine();

@@ -65,10 +65,10 @@ int main(int argc, char *argv[]){
             break;
         } else if (strcmp(argv[i], "-V") == 0){
             std::cout << "passgen version: " << passgen_VERSION_MAJOR << "." << passgen_VERSION_MINOR  << "."<< passgen_VERSION_REVISION << "\n";
-            break;
+            return 2;
         } else if (strcmp(argv[i], "-H") == 0){
 			print_usage();
-            break;
+            return 2;
         } else {
             std::cout << "Unknown option: " << argv[i] << std::endl;
             print_usage();
