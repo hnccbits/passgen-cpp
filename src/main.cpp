@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstring>
+#include "engine.h"
 #include "version.h"
 
 void print_usage() {
