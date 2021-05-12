@@ -1,7 +1,8 @@
 #include <iostream>
 #include <cstring>
-#include "version.h"
 #include "engine.h"
+#include "version.h"
+
 void print_usage() {
     std::cout << "Usage:\n";
     std::cout << "passgen -L <length>       generates a random password with default character set of given length\n";
@@ -13,7 +14,6 @@ void print_usage() {
 }
 
 int main(int argc, char *argv[]){
-    
     // set a limit of the number of arguments to be passed: in argc
     if(argc > 4){
         // tell the user how to run the program
@@ -21,8 +21,10 @@ int main(int argc, char *argv[]){
         print_usage();
         return 1;
     }
+
     // set the length of the character set to default, which is 8.
-    uint8_t length=8;
+    int length = 8;
+
     // set symbol set
     bool symbol_set = false;
 
@@ -73,6 +75,9 @@ int main(int argc, char *argv[]){
             return 2;
         }
     }
+    RandomEngine r1(length,symbol_set);
+    //Printing randomly generated password to stdout.
+    std::cout<<r1.getString()<<std::endl;
     
     return 0;
 }
