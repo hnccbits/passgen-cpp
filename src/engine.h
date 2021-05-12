@@ -15,6 +15,6 @@ class RandomEngine {
          void setLength(uint8_t);
          void setSymbol(bool);
          std::string getString();
-         u_int8_t getLength();
+         uint8_t getLength();
          bool getSymbolStatus();
 };
