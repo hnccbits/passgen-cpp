@@ -7,14 +7,14 @@ class RandomEngine {
     public:
     // constructors:
          RandomEngine();
-         RandomEngine(uint8_t l);
-         RandomEngine(bool s);
+         explicit RandomEngine(uint8_t l);
+         explicit RandomEngine(bool s);
          RandomEngine(uint8_t l,bool s);
 
     // member functions:
          void setLength(uint8_t);
          void setSymbol(bool);
          std::string getString();
-         int getLength();
+         u_int8_t getLength();
          bool getSymbolStatus();
 };
