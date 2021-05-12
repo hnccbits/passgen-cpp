@@ -1,3 +1,10 @@
 #include "engine.h"
 
-// Create definitions of the RandomEngine class here
+
+void RandomEngine::setSymbol(bool s){
+    symb=s;
+}
+bool RandomEngine::getSymbolStatus(){
+    return symb;
+}
+

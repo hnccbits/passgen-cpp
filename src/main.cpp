@@ -14,8 +14,6 @@ void print_usage() {
 
 int main(int argc, char *argv[]){
     
-    // r1.setLength(20);
-    // std::cout<<r1.getLength();
     // set a limit of the number of arguments to be passed: in argc
     if(argc > 4){
         // tell the user how to run the program
@@ -25,11 +23,9 @@ int main(int argc, char *argv[]){
     }
     // set the length of the character set to default, which is 8.
     uint8_t length=8;
-    
     // set symbol set
     bool symbol_set = false;
-    RandomEngine r1(length,symbol_set);
-    std::cout<<r1.getLength();
+
     for(int i = 1; i<argc; i++) {
         if(strcmp(argv[i], "-S") == 0) {
             if(!symbol_set) {
