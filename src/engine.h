@@ -9,8 +9,6 @@ class RandomEngine {
 
     public:
         std::vector<uint8_t>indx = {};
-        std::string charSet = "";
-        std::string symblcharSet = "";
         std::string password = "";
     // Constructors:
         explicit RandomEngine(uint8_t l); // To set the generator for the specific length

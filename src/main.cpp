@@ -25,10 +25,12 @@ int main(int argc, char *argv[]){
     }
 
     // set the length of the character set to default, which is 8.
-    int length = 8;
+    uint8_t length = 8;
 
     // set symbol set
-    bool symbol_set = false, askd_VorH = false;
+    bool symbol_set = false;
+    // Check if asked for version or help
+    bool askd_VorH = false;
 
     for(int i = 1; i<argc; i++) {
         if(strcmp(argv[i], "-S") == 0) {
@@ -66,9 +68,11 @@ int main(int argc, char *argv[]){
             // If all goes right, we have a valid length
             break;
         } else if (strcmp(argv[i], "-V") == 0){
+            askd_VorH = true;
             std::cout << "passgen version: " << passgen_VERSION_MAJOR << "." << passgen_VERSION_MINOR  << "."<< passgen_VERSION_REVISION << "\n";
             break;
         } else if (strcmp(argv[i], "-H") == 0){
+            askd_VorH = true;
 			print_usage();
             break;
         } else {
@@ -93,15 +97,20 @@ int main(int argc, char *argv[]){
 
     std::uniform_int_distribution<int64_t> dist(0, 100000);
     
-    // Instansiate the RadomEngine class: for various cofigurations.
-    // 1. Instansiate the class RandomEngine for -L option.
-    RandomEngine el((uint8_t)62);
-    el.setSymbolSet(symbol_set);
-    // set the length of the password:
-    el.setLength(length);
-    if(!el.getSymbolSetStatus() && !askd_VorH){
-        
-        el.charSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    // Set of Characters
+    std::string CharSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    // Set of symbol characters
+    std::string symblSet = "!@#$%^&*-_";
+
+    
+    if(!symbol_set && !askd_VorH){
+        // Instansiate the RadomEngine class: for various cofigurations.
+        // 1. Instansiate the class RandomEngine for -L option.
+        RandomEngine el(length);
+        el.setSymbolSet(symbol_set);
+
+        // set the length of the password:
+        el.setLength(length);
         
         // the porpose of this loop is to generate random indexs in a vector.
         // then use those random indexes to find the corresponding character in the Set string.
@@ -113,9 +122,8 @@ int main(int argc, char *argv[]){
 
         // generate the desired random password:
         std::string password = el.password;
-        std::string Set = el.charSet;
         for(uint8_t i : el.indx){
-            password += Set[i];
+            password += CharSet[i];
         }
 
         // print the password:

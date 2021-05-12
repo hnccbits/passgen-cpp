@@ -7,7 +7,7 @@
 
 // Constructors:
 RandomEngine::RandomEngine(uint8_t l){
-    charSet.resize(l);
+    length = l;
 }
 
 RandomEngine::RandomEngine(bool s){
