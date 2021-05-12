@@ -8,21 +8,16 @@
 void RandomEngine::setLength(uint8_t l){
     length = l;
 }
-
 uint8_t RandomEngine::getLength(){
     return length;
 }
-
 void RandomEngine::setSymbol(bool s){
     symb = s;
 }
-
 bool RandomEngine::getSymbolStatus(){
     return symb;
 }
-
 std::string RandomEngine::getString(){
-
     int mod=62;
     if(getSymbolStatus()){
         mod=72;
@@ -42,15 +37,12 @@ std::string RandomEngine::getString(){
     std::string alpha_num="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     std::string symbols="!@#$%^&*-_";
     std::string password;
-    std::string alpha_num_sym=alpha_num;
-    
     if(getSymbolStatus()==true){
-        alpha_num_sym= alpha_num + symbols;
+        alpha_num+= symbols;
         }
     for(int i=0;i<getLength();i++){
         int ind=dist(gen);
-        password+= alpha_num_sym[ind];
+        password+= alpha_num[ind];
         }
-        
     return password;
 } 
