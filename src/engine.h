@@ -25,5 +25,4 @@ class RandomEngine {
         std::string getString(); // Returns a random string with configured options
         uint8_t getLength();  // Return length of the generator
         bool getSymbolSetStatus();  // Returns true if symbols are on
-
 };

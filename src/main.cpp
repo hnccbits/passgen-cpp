@@ -2,8 +2,8 @@
 #include <cstring>
 #include<fstream>
 #include<random>
-#include "version.h"
 #include "engine.h"
+#include "version.h"
 
 void print_usage() {
     std::cout << "Usage:\n";
