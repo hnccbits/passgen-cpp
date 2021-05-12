@@ -1,6 +1,9 @@
 #include <iostream>
 #include <cstring>
+#include<fstream>
+#include<random>
 #include "version.h"
+#include "engine.h"
 
 void print_usage() {
     std::cout << "Usage:\n";
@@ -25,7 +28,7 @@ int main(int argc, char *argv[]){
     int length = 8;
 
     // set symbol set
-    bool symbol_set = false;
+    bool symbol_set = false, askd_VorH = false;
 
     for(int i = 1; i<argc; i++) {
         if(strcmp(argv[i], "-S") == 0) {
@@ -74,6 +77,50 @@ int main(int argc, char *argv[]){
             return 2;
         }
     }
+
+    // Generate the seed values:
+    char seq[100];
+    std::ifstream file("/dev/urandom", std::ios::in | std::ios::binary);
+    if(!file) {
+        std::cout << "Error opening file\n";
+    }
+    file.read(seq, sizeof(char)*100);
+    file.close();
     
+    std::seed_seq seed(seq, seq+100);
+
+    std::mt19937_64 gen(seed);
+
+    std::uniform_int_distribution<int64_t> dist(0, 100000);
+    
+    // Instansiate the RadomEngine class: for various cofigurations.
+    // 1. Instansiate the class RandomEngine for -L option.
+    RandomEngine el((uint8_t)62);
+    el.setSymbolSet(symbol_set);
+    // set the length of the password:
+    el.setLength(length);
+    if(!el.getSymbolSetStatus() && !askd_VorH){
+        
+        el.charSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        
+        // the porpose of this loop is to generate random indexs in a vector.
+        // then use those random indexes to find the corresponding character in the Set string.
+        for(int i = 0; i < el.getLength(); i++)
+        {
+            int indx = dist(gen) % 62;
+            el.indx.push_back(indx);
+        }
+
+        // generate the desired random password:
+        std::string password = el.password;
+        std::string Set = el.charSet;
+        for(uint8_t i : el.indx){
+            password += Set[i];
+        }
+
+        // print the password:
+        el.password = password;
+        std::cout<<el.getString()<<std::endl;
+    }
     return 0;
 }
