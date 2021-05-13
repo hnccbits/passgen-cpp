@@ -68,16 +68,15 @@ int main(int argc, char *argv[]){
             return 2;
         } else if (strcmp(argv[i], "-H") == 0){
 			print_usage();
-            return 2;
+            return 0;
         } else {
             std::cout << "Unknown option: " << argv[i] << std::endl;
             print_usage();
-            return 2;
+            return 0;
         }
     }
     RandomEngine r1(length,symbol_set);
     //Printing randomly generated password to stdout.
     std::cout<<r1.getString()<<std::endl;
-    
     return 0;
 }
