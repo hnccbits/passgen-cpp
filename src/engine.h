@@ -7,11 +7,11 @@ class RandomEngine {
          uint8_t length;
          bool symb;
          char seq[100];
-         uint8_t mod;
+         uint8_t mod=62;
          const char alpha_num[63]="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
          const char alpha_num_sym[73]="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*-_";
-         std::mt19937_64* gen;
-         std::uniform_int_distribution<int64_t>* dist; 
+         std::mt19937_64 *gen = new std::mt19937_64;
+         std::uniform_int_distribution<int64_t> *dist = new std::uniform_int_distribution<int64_t>;
     public:
          // constructors:
          RandomEngine();
