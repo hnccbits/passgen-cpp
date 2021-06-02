@@ -24,6 +24,8 @@ void print_usage() {
 	std::cout << "passgen -S                generates a random password with all character set of default length 8\n";
 	std::cout << "passgen -S -L <length>    generates a random password with all characters set of given length\n";
 	std::cout << "Example: passgen -S -L 20 generates a random password with all characters set of length 20\n";
+    std::cout << "passgen -T -S -L <length>    generates a random password with all characters set of given length in a text file\n";
+    std::cout << "Example: passgen -T -S -L 20 generates a random password with all characters set of length 20 in a text file named password_file.txt\n";
 	std::cout << "passgen -V	      prints the version of this tool\n";
 }
 
