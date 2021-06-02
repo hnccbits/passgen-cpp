@@ -50,7 +50,7 @@ int main(int argc, char *argv[]){
                 save_pass = true;
             }
             else{
-                std::cerr << "Illegal usage: Multiple -A flags\n";
+                std::cerr << "Illegal usage: Multiple -T flags\n";
                 return 2;
             }
         } 
