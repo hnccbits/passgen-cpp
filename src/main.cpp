@@ -13,6 +13,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 #include <iostream>
 #include <cstring>
+#include <fstream>
 #include "engine.h"
 #include "version.h"
 
@@ -28,7 +29,7 @@ void print_usage() {
 
 int main(int argc, char *argv[]){
     // set a limit of the number of arguments to be passed: in argc
-    if(argc > 4){
+    if(argc > 5){
         // tell the user how to run the program
         std::cerr << "Illegal usage!\n";
         print_usage();
@@ -39,17 +40,27 @@ int main(int argc, char *argv[]){
     int length = 8;
 
     // set symbol set
-    bool symbol_set = false;
+    bool symbol_set = false,save_pass=false;
 
     for(int i = 1; i<argc; i++) {
-        if(strcmp(argv[i], "-S") == 0) {
+        if(strcmp(argv[i],"-T")==0){
+            if(!save_pass){
+                save_pass = true;
+            }
+            else{
+                std::cerr << "Illegal usage: Multiple -A flags\n";
+                return 2;
+            }
+        } 
+        else if(strcmp(argv[i], "-S") == 0) {
             if(!symbol_set) {
                 symbol_set = true;
             } else {
                 std::cerr << "Illegal usage: Multiple -S flags\n";
                 return 2;
             }
-        } else if(strcmp(argv[i], "-L") == 0){
+        }
+        else if(strcmp(argv[i], "-L") == 0){
             if(i == argc - 1) {
                 std::cerr << "Illegal usage: password length not provided with -L option\n";
                 return 2;
@@ -89,7 +100,16 @@ int main(int argc, char *argv[]){
         }
     }
     RandomEngine r1(length,symbol_set);
+    if(!save_pass){
     //Printing randomly generated password to stdout.
     std::cout<<r1.getString()<<std::endl;
+    }
+    else{
+        std::ofstream file_stream;
+        file_stream.open("password_file.txt");
+        file_stream << r1.getString()<<std::endl;
+        std::cout<<"Password generated in build/password_file.txt"<<std::endl;
+        file_stream.close();
+    }
     return 0;
 }
