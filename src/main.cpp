@@ -52,11 +52,6 @@ int main(int argc, char *argv[]){
             if(!save_pass){
                 save_pass = true;
                 file_path =argv[i+1];
-                if(file_path[0]!='/'){
-                    std::cerr<<"Incomplete File Path. Please try again."<<std::endl;
-                    print_usage();
-                    return 2;
-                }
                 i++;
             }
             else{
@@ -120,12 +115,12 @@ int main(int argc, char *argv[]){
         std::ofstream file_stream;
         file_stream.open(file_path);
         if(!file_stream){
-             std::cerr << "Invalid File Path. Please try again."<<std::endl;
+             std::cerr << "Invalid File Path. Please try again.\n";
              return 2;
         }
         else{
         file_stream << r1.getString()<<std::endl;
-        std::cout<<"Password generated and saved at: "<<file_path<<std::endl;
+        std::cout<<"Password generated and saved at required file.\n";
         }
         file_stream.close();
     }
