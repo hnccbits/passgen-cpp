@@ -51,7 +51,7 @@ int main(int argc, char *argv[]){
         if(strcmp(argv[i],"-F")==0){
             if(!save_pass){
                 save_pass = true;
-                file_path =argv[i+1];
+                file_path = argv[i+1];
                 i++;
             }
             else{
