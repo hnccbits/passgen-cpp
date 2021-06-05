@@ -52,7 +52,6 @@ int main(int argc, char *argv[]){
             if(!save_pass){
                 save_pass = true;
                 file_path = argv[i+1];
-                i++;
             }
             else{
                 std::cerr << "Illegal usage: Multiple -F flags\n";
