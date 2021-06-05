@@ -23,7 +23,7 @@ make
  It generates random passwords according to the configurations provided by the user, such as the length, which set of characters to include in the password, etc. 
 
 
-# Installing Dependencies :-
+# Installing Build Dependencies :-
  It uses cmake to build the program so it needs to be installed on system.
 
 To know more about cmake refer to this page :- [https://cmake.org/cmake/help/latest/guide/tutorial/index.html](https://cmake.org/cmake/help/latest/guide/tutorial/index.html)
