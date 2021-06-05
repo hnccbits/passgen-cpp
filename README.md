@@ -63,14 +63,22 @@ In the passgen-cpp
 $ cmake -B build/ -DCMAKE_INSTALL_PREFIX="/usr"
 $ sudo make install
 ```
+
+# Usage
+ Run the following command in  the ``` build ``` directorry for information on usage
+ ```
+ $ passgen -H
+ ```
+ ![usage](https://github.com/kumarharsh2396/passgen-cpp/blob/main/carbon.png?raw=true)
+
+
 # Features
 
 - Here we are using /dev/urandom file which uses uses truly random data to generate seeds, and make them unpredictable because of the large entropy from the     entropy pool of the Linux kernel. The final password generated has highly randomized data, almost secure and untraceable.
 
-# more about /dev/urandom
+## more about /dev/urandom
  It is a special file that serves as a pseudorandom number generator.
  - This file is present in Unix-like operating systems.
- - A specific bit of memory read from the file. 
  - Providing access to the environmental noise collected from the device drivers, such as printers, graphic cards, helps us read random data, which is used as the seed for further generation of the password. 
  - to know more about this file refer to to this documentation :- [/dev/urandom](https://man7.org/linux/man-pages/man4/random.4.html) 
  
@@ -80,11 +88,5 @@ $ sudo make install
  
 
 
-# Usage
- Run the following command in  the ``` build ``` directorry for information on usage
- ```
- $ passgen -H
- ```
- ![usage](https://github.com/kumarharsh2396/passgen-cpp/blob/main/carbon.png?raw=true)
 
 
