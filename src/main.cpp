@@ -120,7 +120,7 @@ int main(int argc, char *argv[]){
         }
         else{
         file_stream << r1.getString()<<std::endl;
-        std::cout<<"Password generated and saved at required file.\n";
+        std::cout<<"Password generated and saved at " << file_path << std::endl;;
         }
         file_stream.close();
     }
