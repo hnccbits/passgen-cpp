@@ -37,16 +37,20 @@ sudo apt-get install cmake
 ```
 # Build instructions
 
-```build
-# cloning this repository
+
+- cloning this repository
+```
 $ git clone https://github.com/hnccbits/passgen-cpp.git
-
-# going into the reposistory
+```
+- going into the reposistory
+```
 $ cd passgen-cpp
-
-# generating standard build files
+```
+- generating standard build files
+```
 $ cmake -B build/
-
+```
+```
 $ cd build
 $ make
 ```
@@ -63,9 +67,9 @@ $ sudo make install
 
 
 # Usage
- Run the following command in  the build dir for information on usage
+ Run the following command in  the ``` build ``` directorry for information on usage
  ```
- ./passgen -H
+ $ passgen -H
  ```
  ![usage](https://github.com/kumarharsh2396/passgen-cpp/blob/main/carbon.png?raw=true)
 
