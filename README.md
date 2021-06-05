@@ -28,7 +28,7 @@ make
 
 To know more about cmake refer to this page :- [https://cmake.org/cmake/help/latest/guide/tutorial/index.html](https://cmake.org/cmake/help/latest/guide/tutorial/index.html)
 
- cmake can be installed using the following commands
+ Cmake can be installed using the following commands
 
 
 
@@ -86,5 +86,4 @@ $ sudo make install
  - It can also be achieved by the use of the srand(time(0)) function but the same password is generated if our code is run multiple times in the same second.
 
  
-
 
