@@ -14,6 +14,7 @@ make
 [Read Design goals](DESIGN.md) -->
 ![license](https://img.shields.io/badge/license-MIT-brightgreen) 
 ![license](https://img.shields.io/badge/dependencies-cmake-yellowgreen)
+![license](https://img.shields.io/badge/forks-13-blue)
 
 ![banner](https://github.com/kumarharsh2396/passgen-cpp/blob/main/_%F0%9F%94%90_%E2%89%AA_passgen-cpp_%E2%89%AB_%F0%9F%85%92%F0%9F%85%9B%F0%9F%85%98_tool.png?raw=true)
 
