@@ -99,7 +99,7 @@ int main(int argc, char *argv[]){
         } else if (strcmp(argv[i], "-H") == 0){
 			print_usage();
             return 0;
-        } else {
+        } else if(!save_pass){
             std::cout << "Unknown option: " << argv[i] << std::endl;
             print_usage();
             return 0;
