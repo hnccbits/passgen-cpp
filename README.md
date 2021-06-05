@@ -67,6 +67,6 @@ $ sudo make install
  ```
  ./passgen -H
  ```
- [![usage](blob:https://carbon.now.sh/b69893f8-2938-48cb-846b-a8fc19a3981d)](https://username.github.io/)
+ ![usage](https://github.com/kumarharsh2396/passgen-cpp/blob/main/carbon.png?raw=true)
 
 
