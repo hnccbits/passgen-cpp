@@ -83,7 +83,7 @@ $ sudo make install
  - to know more about this file refer to to this documentation :- [/dev/urandom](https://man7.org/linux/man-pages/man4/random.4.html) 
  
  ## other alternative for seeding values
- - It can also be achieved by the use of the srand(time(0)) function but with the flaw, that same password is generated if our code is run multiple times in the same second.
+ - It can also be achieved by the use of the srand(time(0)) function but the same password is generated if our code is run multiple times in the same second.
 
  
 
