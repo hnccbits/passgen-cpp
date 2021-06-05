@@ -33,7 +33,6 @@ to know more about cmake refer to this page :- [cmake](https://cmake.org/cmake/h
 
 
 ```cmake
-# installing dependencies
 sudo apt-get install cmake
 ```
 # Build instructions
