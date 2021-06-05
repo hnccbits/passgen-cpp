@@ -65,7 +65,19 @@ $ sudo make install
 ```
 # Features
 
-- 
+- Here we are using /dev/urandom file which uses uses truly random data to generate seeds, and make them unpredictable because of the large entropy from the     entropy pool of the Linux kernel. The final password generated has highly randomized data, almost secure and untraceable.
+
+# more about /dev/urandom
+ It is a special file that serves as a pseudorandom number generator.
+ - This file is present in Unix-like operating systems.
+ - A specific bit of memory read from the file. 
+ - Providing access to the environmental noise collected from the device drivers, such as printers, graphic cards, helps us read random data, which is used as the seed for further generation of the password. 
+ - to know more about this file refer to to this documentation :- [/dev/urandom](https://man7.org/linux/man-pages/man4/random.4.html) 
+ 
+ ## other alternative for seeding values
+ - It can also be achieved by the use of the srand(time(0)) function but with the flaw, that same password is generated if our code is run multiple times in the same second.
+
+ 
 
 
 # Usage
