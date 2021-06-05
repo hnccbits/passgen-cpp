@@ -109,7 +109,7 @@ int main(int argc, char *argv[]){
     RandomEngine r1(length,symbol_set);
     if(!save_pass){
     //Printing randomly generated password to stdout.
-    std::cout<<r1.getString()<<std::endl;
+        std::cout<<r1.getString()<<std::endl;
     }
     else{
         std::ofstream file_stream;
