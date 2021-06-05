@@ -66,6 +66,8 @@ $ sudo make install
 ```
 # Features
 
+- 
+
 
 # Usage
  Run the following command in  the ``` build ``` directorry for information on usage
