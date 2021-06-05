@@ -42,7 +42,7 @@ sudo apt-get install cmake
 ```
 $ git clone https://github.com/hnccbits/passgen-cpp.git
 ```
-- going into the reposistory
+- Going into the reposistory
 ```
 $ cd passgen-cpp
 ```
