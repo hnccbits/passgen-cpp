@@ -15,6 +15,8 @@ make
 ![license](https://img.shields.io/badge/license-MIT-brightgreen) 
 ![license](https://img.shields.io/badge/dependencies-cmake-yellowgreen)
 
+![banner](https://github.com/kumarharsh2396/passgen-cpp/blob/main/_%F0%9F%94%90_%E2%89%AA_passgen-cpp_%E2%89%AB_%F0%9F%85%92%F0%9F%85%9B%F0%9F%85%98_tool.png?raw=true)
+
  A CLI password generator, written in C++.
 
  It generates random passwords according to the configurations provided by the user, such as the length, which set of characters to include in the password, etc. 
