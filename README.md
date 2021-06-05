@@ -38,7 +38,7 @@ sudo apt-get install cmake
 # Build instructions
 
 
-- cloning this repository
+- Cloning this repository
 ```
 $ git clone https://github.com/hnccbits/passgen-cpp.git
 ```
@@ -86,4 +86,3 @@ $ sudo make install
  - It can also be achieved by the use of the srand(time(0)) function but the same password is generated if our code is run multiple times in the same second.
 
  
-
