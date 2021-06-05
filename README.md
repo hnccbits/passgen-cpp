@@ -65,7 +65,7 @@ $ sudo make install
 ```
 
 # Usage
- Run the following command in  the ``` build ``` directorry for information on usage
+ Run the following command for information on usage
  ```
  $ passgen -H
  ```
