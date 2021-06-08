@@ -35,13 +35,19 @@ make
 
 To know more about cmake refer to this page :- [https://cmake.org/cmake/help/latest/guide/tutorial/index.html](https://cmake.org/cmake/help/latest/guide/tutorial/index.html)
 
- Cmake can be installed using the following commands
+ Cmake can be installed using package managers like apt/dnf by the following ways:-
 
+- For Ubuntu/Debian 
 
 
 ```cmake
 sudo apt-get install cmake
 ```
+- For fedora/CentOS
+```
+sudo dnf install cmake
+```
+
 # Build instructions
 
 
