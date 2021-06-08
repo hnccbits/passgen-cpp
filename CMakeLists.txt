@@ -7,5 +7,4 @@ set(CMAKE_CXX_STANDARD 17)
 configure_file(${PROJECT_SOURCE_DIR}/src/version.h.in ${PROJECT_BINARY_DIR}/src/version.h)
 add_executable(passgen ${PROJECT_SOURCE_DIR}/src/main.cpp ${PROJECT_SOURCE_DIR}/src/engine.cpp)
 target_include_directories(passgen PUBLIC "${PROJECT_BINARY_DIR}/src/")
-
 install(TARGETS passgen DESTINATION bin/)

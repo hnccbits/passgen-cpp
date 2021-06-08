@@ -13,6 +13,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 #include <iostream>
 #include <cstring>
+#include <fstream>
 #include "engine.h"
 #include "version.h"
 
@@ -23,12 +24,14 @@ void print_usage() {
 	std::cout << "passgen -S                generates a random password with all character set of default length 8\n";
 	std::cout << "passgen -S -L <length>    generates a random password with all characters set of given length\n";
 	std::cout << "Example: passgen -S -L 20 generates a random password with all characters set of length 20\n";
+    std::cout << "passgen -F <file path> -S -L <length>    generates a random password with all characters set of given length in a text file with absolute path\n";
+    std::cout << "Example: passgen -F ~/Documents/pass.txt -S -L 20   generates a random password with all characters set of length 20 in a text file named pass.txt, in the Documents directory\n";
 	std::cout << "passgen -V	      prints the version of this tool\n";
 }
 
 int main(int argc, char *argv[]){
     // set a limit of the number of arguments to be passed: in argc
-    if(argc > 4){
+    if(argc > 6){
         // tell the user how to run the program
         std::cerr << "Illegal usage!\n";
         print_usage();
@@ -39,17 +42,31 @@ int main(int argc, char *argv[]){
     int length = 8;
 
     // set symbol set
-    bool symbol_set = false;
+    bool symbol_set = false,save_pass=false;
+
+    //set file path for writing password to current directory as default.
+    std::string file_path ;
 
     for(int i = 1; i<argc; i++) {
-        if(strcmp(argv[i], "-S") == 0) {
+        if(strcmp(argv[i],"-F")==0){
+            if(!save_pass){
+                save_pass = true;
+                file_path = argv[i+1];
+            }
+            else{
+                std::cerr << "Illegal usage: Multiple -F flags\n";
+                return 2;
+            }
+        } 
+        else if(strcmp(argv[i], "-S") == 0) {
             if(!symbol_set) {
                 symbol_set = true;
             } else {
                 std::cerr << "Illegal usage: Multiple -S flags\n";
                 return 2;
             }
-        } else if(strcmp(argv[i], "-L") == 0){
+        }
+        else if(strcmp(argv[i], "-L") == 0){
             if(i == argc - 1) {
                 std::cerr << "Illegal usage: password length not provided with -L option\n";
                 return 2;
@@ -82,14 +99,29 @@ int main(int argc, char *argv[]){
         } else if (strcmp(argv[i], "-H") == 0){
 			print_usage();
             return 0;
-        } else {
+        } else if(!save_pass){
             std::cout << "Unknown option: " << argv[i] << std::endl;
             print_usage();
             return 0;
         }
     }
     RandomEngine r1(length,symbol_set);
+    if(!save_pass){
     //Printing randomly generated password to stdout.
-    std::cout<<r1.getString()<<std::endl;
+        std::cout<<r1.getString()<<std::endl;
+    }
+    else{
+        std::ofstream file_stream;
+        file_stream.open(file_path);
+        if(!file_stream){
+             std::cerr << "Invalid File Path. Please try again.\n";
+             return 2;
+        }
+        else{
+        file_stream << r1.getString()<<std::endl;
+        std::cout<<"Password generated and saved at " << file_path << std::endl;
+        }
+        file_stream.close();
+    }
     return 0;
 }
