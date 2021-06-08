@@ -16,11 +16,18 @@ make
 ![license](https://img.shields.io/badge/dependencies-cmake-yellowgreen)
 ![license](https://img.shields.io/badge/forks-13-blue)
 
-![banner](banner.png)
+![banner](https://github.com/kumarharsh2396/passgen-cpp/blob/main/image/banner.png?raw=true)
+
+# About the tool
 
  A CLI password generator, written in C++.
 
  It generates random passwords according to the configurations provided by the user, such as the length, which set of characters to include in the password, etc. 
+
+# Features
+
+- Here we are using /dev/urandom file which uses uses truly random data to generate seeds, and make them unpredictable because of the large entropy from the     entropy pool of the Linux kernel. The final password generated has highly randomized data, almost secure and untraceable.
+- here user can save the generated password in a specified text file.
 
 
 # Installing Build Dependencies :-
@@ -69,13 +76,31 @@ $ sudo make install
  ```
  $ passgen -H
  ```
- ![usage](https://github.com/kumarharsh2396/passgen-cpp/blob/main/carbon.png?raw=true)
+ ![usage](https://github.com/kumarharsh2396/passgen-cpp/blob/main/image/usage.png?raw=true)
+
+ Run this command to generate a random password with default character set of specified length
+ ```
+ $ passgen -L <length>
+```
+Run this command to generate a random password with all character set of default length 8.
+```
+$ passgen -S
+```
+Run this command to generate a random password with all character set of specified length
+```
+$ passgen -S -L <length>
+```
+Run this command to generate a password of default length with special characters and saves it in the specified file.
+- The file path can be absolute or relative.
+```
+$ ./passgen -F <file path> -S -L <length>
+```
+### example for  above commands:-
+![example](https://github.com/kumarharsh2396/passgen-cpp/blob/main/image/example.png?raw=true)
 
 
-# Features
 
-- Here we are using /dev/urandom file which uses uses truly random data to generate seeds, and make them unpredictable because of the large entropy from the     entropy pool of the Linux kernel. The final password generated has highly randomized data, almost secure and untraceable.
-- here user can save the save the password in a text.
+
 
 ## more about /dev/urandom
  It is a special file that serves as a pseudorandom number generator.
