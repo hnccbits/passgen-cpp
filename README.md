@@ -27,7 +27,7 @@ make
 # Features
 
 - Here we are using /dev/urandom file which uses uses truly random data to generate seeds, and make them unpredictable because of the large entropy from the     entropy pool of the Linux kernel. The final password generated has highly randomized data, almost secure and untraceable.
-- here user can save the generated password in a specified text file.
+- User can save the generated password in a specified text file.
 
 
 # Installing Build Dependencies :-
@@ -93,7 +93,7 @@ $ passgen -S -L <length>
 Run this command to generate a password of default length with special characters and saves it in the specified file.
 - The file path can be absolute or relative.
 ```
-$ ./passgen -F <file path> -S -L <length>
+$ passgen -F <file path> -S -L <length>
 ```
 ### example for  above commands:-
 ![example](https://github.com/kumarharsh2396/passgen-cpp/blob/main/image/example.png?raw=true)
