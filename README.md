@@ -16,7 +16,7 @@ make
 ![license](https://img.shields.io/badge/dependencies-cmake-yellowgreen)
 ![license](https://img.shields.io/badge/forks-13-blue)
 
-![banner](https://github.com/kumarharsh2396/passgen-cpp/blob/main/_%F0%9F%94%90_%E2%89%AA_passgen-cpp_%E2%89%AB_%F0%9F%85%92%F0%9F%85%9B%F0%9F%85%98_tool.png?raw=true)
+![banner](banner.png)
 
  A CLI password generator, written in C++.
 
@@ -75,6 +75,7 @@ $ sudo make install
 # Features
 
 - Here we are using /dev/urandom file which uses uses truly random data to generate seeds, and make them unpredictable because of the large entropy from the     entropy pool of the Linux kernel. The final password generated has highly randomized data, almost secure and untraceable.
+- here user can save the save the password in a text.
 
 ## more about /dev/urandom
  It is a special file that serves as a pseudorandom number generator.
