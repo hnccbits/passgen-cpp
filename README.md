@@ -59,7 +59,7 @@ $ git clone https://github.com/hnccbits/passgen-cpp.git
 ```
 $ cd passgen-cpp
 ```
-- generating standard build files
+- Generating standard build files
 ```
 $ cmake -B build/
 ```
