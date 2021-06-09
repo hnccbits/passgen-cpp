@@ -16,7 +16,7 @@ make
 ![license](https://img.shields.io/badge/dependencies-cmake-yellowgreen)
 ![license](https://img.shields.io/badge/forks-13-blue)
 
-![banner](https://github.com/kumarharsh2396/passgen-cpp/blob/main/image/banner.png?raw=true)
+![banner](./image/banner.png)
 
 # About the tool
 
@@ -82,7 +82,7 @@ $ sudo make install
  ```
  $ passgen -H
  ```
- ![usage](https://github.com/kumarharsh2396/passgen-cpp/blob/main/image/usage.png?raw=true)
+ ![usage](./image/usage.png)
 
  Run this command to generate a random password with default character set of specified length
  ```
@@ -102,7 +102,7 @@ Run this command to generate a password of default length with special character
 $ passgen -F <file path> -S -L <length>
 ```
 ### example for  above commands:-
-![example](https://github.com/kumarharsh2396/passgen-cpp/blob/main/image/example.png?raw=true)
+![example](./image/example.png)
 
 
 
