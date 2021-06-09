@@ -70,7 +70,7 @@ $ make
 
 # Installation
 
-In the passgen-cpp
+In the project root while generating CMake build files
 
 ```
 $ cmake -B build/ -DCMAKE_INSTALL_PREFIX="/usr"
