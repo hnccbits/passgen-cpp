@@ -16,6 +16,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 #include <fstream>
 #include <functional>
 #include <random>
+#include <filesystem>
 //Create definitions of the RandomEngine class here
 //Methods:
 RandomEngine::RandomEngine():length((uint8_t)8),symb(false),mod(symb?73:63){
@@ -23,7 +24,7 @@ RandomEngine::RandomEngine():length((uint8_t)8),symb(false),mod(symb?73:63){
     //this part is independent of user's input, hence defined in the default contructor.
     std::ifstream file("/dev/urandom", std::ios::in | std::ios::binary);
     if(!file){
-    throw std::runtime_error("Error opening file\n");
+        throw std::filesystem::filesystem_error("Error opening file",std::error_code());
     }
     file.read(seq, sizeof(char)*100);
     file.close();
@@ -34,7 +35,7 @@ RandomEngine::RandomEngine():length((uint8_t)8),symb(false),mod(symb?73:63){
 RandomEngine::RandomEngine(uint8_t l,bool s): length(l), symb(s),mod(symb?73:63){
     std::ifstream file("/dev/urandom", std::ios::in | std::ios::binary);
     if(!file){
-    throw std::runtime_error("Error opening file\n");
+        throw std::filesystem::filesystem_error("Error opening file",std::error_code());
     }
     file.read(seq, sizeof(char)*100);
     file.close();
@@ -45,7 +46,7 @@ RandomEngine::RandomEngine(uint8_t l,bool s): length(l), symb(s),mod(symb?73:63)
 RandomEngine::RandomEngine(uint8_t l):length(l),mod(symb?73:63){
     std::ifstream file("/dev/urandom", std::ios::in | std::ios::binary);
     if(!file){
-    throw std::runtime_error("Error opening file\n");
+        throw std::filesystem::filesystem_error("Error opening file",std::error_code());
     }
     file.read(seq, sizeof(char)*100);
     file.close();
@@ -54,9 +55,9 @@ RandomEngine::RandomEngine(uint8_t l):length(l),mod(symb?73:63){
     dist = new std::uniform_int_distribution<int64_t>(0,mod);
 }
   RandomEngine::RandomEngine(bool s): symb(s),mod(symb?73:63){
-     std::ifstream file("/dev/urandom", std::ios::in | std::ios::binary);
+    std::ifstream file("/dev/urandom", std::ios::in | std::ios::binary);
     if(!file){
-    throw std::runtime_error("Error opening file\n");
+        throw std::filesystem::filesystem_error("Error opening file",std::error_code());
     }
     file.read(seq, sizeof(char)*100);
     file.close();
