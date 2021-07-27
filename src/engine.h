@@ -29,6 +29,9 @@ class RandomEngine {
          explicit RandomEngine(uint8_t l);
          explicit RandomEngine(bool s);
          RandomEngine(uint8_t l,bool s);
+         // desctructor:
+         ~RandomEngine();
+
 // member functions:
          void setLength(uint8_t);
          void setSymbol(bool);
