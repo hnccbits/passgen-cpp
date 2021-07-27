@@ -34,7 +34,7 @@ RandomEngine::RandomEngine():length((uint8_t)8),symb(false),mod(symb?73:63){
     dist = new std::uniform_int_distribution<int64_t>(0,mod);
 
     if(!gen || !dist){
-            throw std::runtime_error("Cannot generate password");
+            throw std::runtime_error("Cannot generate password\n");
     }
 }
 RandomEngine::RandomEngine(uint8_t l,bool s): length(l), symb(s),mod(symb?73:63){
@@ -49,7 +49,7 @@ RandomEngine::RandomEngine(uint8_t l,bool s): length(l), symb(s),mod(symb?73:63)
     dist = new std::uniform_int_distribution<int64_t>(0,mod);
 
     if(!gen || !dist){
-            throw std::runtime_error("Cannot generate password");
+            throw std::runtime_error("Cannot generate password\n");
     }
 }
 RandomEngine::RandomEngine(uint8_t l):length(l),mod(symb?73:63){
@@ -64,7 +64,7 @@ RandomEngine::RandomEngine(uint8_t l):length(l),mod(symb?73:63){
     dist = new std::uniform_int_distribution<int64_t>(0,mod);
 
     if(!gen || !dist){
-            throw std::runtime_error("Cannot generate password");
+            throw std::runtime_error("Cannot generate password\n");
     }
 }
 RandomEngine::RandomEngine(bool s): symb(s),mod(symb?73:63){
@@ -79,7 +79,7 @@ RandomEngine::RandomEngine(bool s): symb(s),mod(symb?73:63){
     dist = new std::uniform_int_distribution<int64_t>(0,mod);
 
     if(!gen || !dist){
-            throw std::runtime_error("Cannot generate password");
+            throw std::runtime_error("Cannot generate password\n");
     }
 }
 
