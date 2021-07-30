@@ -25,7 +25,7 @@ RandomEngine::RandomEngine():length((uint8_t)8),symb(false),mod(symb?73:63){
     //this part is independent of user's input, hence defined in the default contructor.
     std::ifstream file("/dev/urandom", std::ios::in | std::ios::binary);
     if(!file){
-    std::cout<<"Error opening file\n";
+        throw std::filesystem::filesystem_error("Error opening file",std::error_code());
     }
     file.read(seq, sizeof(char)*100);
     file.close();
@@ -39,7 +39,7 @@ RandomEngine::RandomEngine():length((uint8_t)8),symb(false),mod(symb?73:63){
 RandomEngine::RandomEngine(uint8_t l,bool s): length(l), symb(s),mod(symb?73:63){
     std::ifstream file("/dev/urandom", std::ios::in | std::ios::binary);
     if(!file){
-    std::cout<<"Error opening file\n";
+        throw std::filesystem::filesystem_error("Error opening file",std::error_code());
     }
     file.read(seq, sizeof(char)*100);
     file.close();
@@ -53,7 +53,7 @@ RandomEngine::RandomEngine(uint8_t l,bool s): length(l), symb(s),mod(symb?73:63)
 RandomEngine::RandomEngine(uint8_t l):length(l),mod(symb?73:63){
     std::ifstream file("/dev/urandom", std::ios::in | std::ios::binary);
     if(!file){
-    std::cout<<"Error opening file\n";
+        throw std::filesystem::filesystem_error("Error opening file",std::error_code());
     }
     file.read(seq, sizeof(char)*100);
     file.close();
@@ -64,10 +64,11 @@ RandomEngine::RandomEngine(uint8_t l):length(l),mod(symb?73:63){
             throw std::runtime_error("Cannot generate password\n");
     }
 }
+
 RandomEngine::RandomEngine(bool s): symb(s),mod(symb?73:63){
-     std::ifstream file("/dev/urandom", std::ios::in | std::ios::binary);
+    std::ifstream file("/dev/urandom", std::ios::in | std::ios::binary);
     if(!file){
-    std::cout<<"Error opening file\n";
+        throw std::filesystem::filesystem_error("Error opening file",std::error_code());
     }
     file.read(seq, sizeof(char)*100);
     file.close();
