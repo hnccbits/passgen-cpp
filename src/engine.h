@@ -22,8 +22,8 @@ class RandomEngine {
          uint8_t mod=62;
          const char alpha_num[63]="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
          const char alpha_num_sym[73]="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*-_";
-         std::shared_ptr<std::mt19937_64> gen;
-         std::shared_ptr<std::uniform_int_distribution<int64_t>> dist;
+         std::unique_ptr<std::mt19937_64> gen;
+         std::unique_ptr<std::uniform_int_distribution<int64_t>> dist;
     public:
          // constructors:
          RandomEngine();

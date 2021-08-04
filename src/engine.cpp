@@ -30,13 +30,8 @@ RandomEngine::RandomEngine():length((uint8_t)8),symb(false),mod(symb?73:63){
     file.read(seq, sizeof(char)*100);
     file.close();
     std::seed_seq seed(seq, seq+100);
-    std::shared_ptr<std::mt19937_64> Gen = std::make_shared<std::mt19937_64>(seed);
-    gen = Gen;
-    std::shared_ptr<std::uniform_int_distribution<int64_t>> Dist = std::make_shared<std::uniform_int_distribution<int64_t>>(0, mod);
-    dist = Dist;
-    if(!gen || !dist){
-            throw std::runtime_error("Cannot generate password\n");
-    }
+    gen = std::make_unique<std::mt19937_64>(seed);
+    dist = std::make_unique<std::uniform_int_distribution<int64_t>>(0, mod);
 }
 RandomEngine::RandomEngine(uint8_t l,bool s): length(l), symb(s),mod(symb?73:63){
     std::ifstream file("/dev/urandom", std::ios::in | std::ios::binary);
@@ -47,12 +42,8 @@ RandomEngine::RandomEngine(uint8_t l,bool s): length(l), symb(s),mod(symb?73:63)
     file.close();
     std::seed_seq seed(seq, seq+100);
     std::shared_ptr<std::mt19937_64> Gen = std::make_shared<std::mt19937_64>(seed);
-    gen = Gen;
-    std::shared_ptr<std::uniform_int_distribution<int64_t>> Dist = std::make_shared<std::uniform_int_distribution<int64_t>>(0, mod);
-    dist = Dist;
-    if(!gen || !dist){
-            throw std::runtime_error("Cannot generate password\n");
-    }
+    gen = std::make_unique<std::mt19937_64>(seed);
+    dist = std::make_unique<std::uniform_int_distribution<int64_t>>(0, mod);
 }
 RandomEngine::RandomEngine(uint8_t l):length(l),mod(symb?73:63){
     std::ifstream file("/dev/urandom", std::ios::in | std::ios::binary);
@@ -63,12 +54,8 @@ RandomEngine::RandomEngine(uint8_t l):length(l),mod(symb?73:63){
     file.close();
     std::seed_seq seed(seq, seq+100);
     std::shared_ptr<std::mt19937_64> Gen = std::make_shared<std::mt19937_64>(seed);
-    gen = Gen;
-    std::shared_ptr<std::uniform_int_distribution<int64_t>> Dist = std::make_shared<std::uniform_int_distribution<int64_t>>(0, mod);
-    dist = Dist;
-    if(!gen || !dist){
-            throw std::runtime_error("Cannot generate password\n");
-    }
+    gen = std::make_unique<std::mt19937_64>(seed);
+    dist = std::make_unique<std::uniform_int_distribution<int64_t>>(0, mod);
 }
 
 RandomEngine::RandomEngine(bool s): symb(s),mod(symb?73:63){
@@ -80,12 +67,8 @@ RandomEngine::RandomEngine(bool s): symb(s),mod(symb?73:63){
     file.close();
     std::seed_seq seed(seq, seq+100);
     std::shared_ptr<std::mt19937_64> Gen = std::make_shared<std::mt19937_64>(seed);
-    gen = Gen;
-    std::shared_ptr<std::uniform_int_distribution<int64_t>> Dist = std::make_shared<std::uniform_int_distribution<int64_t>>(0, mod);
-    dist = Dist;
-    if(!gen || !dist){
-            throw std::runtime_error("Cannot generate password\n");
-    }
+    gen = std::make_unique<std::mt19937_64>(seed);
+    dist = std::make_unique<std::uniform_int_distribution<int64_t>>(0, mod);
 }
 
 void RandomEngine::setLength(uint8_t l){
