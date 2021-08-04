@@ -41,7 +41,6 @@ RandomEngine::RandomEngine(uint8_t l,bool s): length(l), symb(s),mod(symb?73:63)
     file.read(seq, sizeof(char)*100);
     file.close();
     std::seed_seq seed(seq, seq+100);
-    std::shared_ptr<std::mt19937_64> Gen = std::make_shared<std::mt19937_64>(seed);
     gen = std::make_unique<std::mt19937_64>(seed);
     dist = std::make_unique<std::uniform_int_distribution<int64_t>>(0, mod);
 }
@@ -53,7 +52,6 @@ RandomEngine::RandomEngine(uint8_t l):length(l),mod(symb?73:63){
     file.read(seq, sizeof(char)*100);
     file.close();
     std::seed_seq seed(seq, seq+100);
-    std::shared_ptr<std::mt19937_64> Gen = std::make_shared<std::mt19937_64>(seed);
     gen = std::make_unique<std::mt19937_64>(seed);
     dist = std::make_unique<std::uniform_int_distribution<int64_t>>(0, mod);
 }
@@ -66,7 +64,6 @@ RandomEngine::RandomEngine(bool s): symb(s),mod(symb?73:63){
     file.read(seq, sizeof(char)*100);
     file.close();
     std::seed_seq seed(seq, seq+100);
-    std::shared_ptr<std::mt19937_64> Gen = std::make_shared<std::mt19937_64>(seed);
     gen = std::make_unique<std::mt19937_64>(seed);
     dist = std::make_unique<std::uniform_int_distribution<int64_t>>(0, mod);
 }
